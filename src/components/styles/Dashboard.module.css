@@ -1,0 +1,175 @@
+/* ==========================================================================
+   Manifest — shared design tokens
+   (Same tokens as the table/modal stylesheet — keep in sync, or import
+   from a single tokens file if your build supports it.)
+   ========================================================================== */
+
+:root {
+  --manifest-navy: #0b2540;
+  --manifest-navy-soft: #12385f;
+  --manifest-amber: #c2793d;
+  --manifest-amber-soft: #fdf1e6;
+  --manifest-ink: #1f2937;
+  --manifest-muted: #64748b;
+  --manifest-line: #e2e8f0;
+  --manifest-paper: #fefdfb;
+  --manifest-green: #0f7a5c;
+  --manifest-green-soft: #e9f7f1;
+  --font-display: 'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif;
+  --font-body: 'Public Sans', 'Inter', -apple-system, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'SFMono-Regular', ui-monospace, monospace;
+}
+
+/* Container & Layout */
+.dashboardContainer {
+  min-height: 100vh;
+  background-color: #f4f1ec;
+  color: var(--manifest-ink);
+  font-family: var(--font-body);
+  padding: 2rem 1.5rem;
+}
+
+.mainContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* Header Section */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-bottom: 1.25rem;
+  border-bottom: 2px solid var(--manifest-amber);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--manifest-navy);
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.title::before {
+  content: '';
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: var(--manifest-amber);
+  margin-right: 0.6rem;
+  vertical-align: middle;
+  transform: translateY(-2px) rotate(45deg);
+}
+
+.subtitle {
+  font-size: 0.8125rem;
+  font-family: var(--font-mono);
+  color: var(--manifest-muted);
+  margin-top: 0.375rem;
+}
+
+/* Header Actions */
+.actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.primaryBtn,
+.secondaryBtn {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.5rem 1.125rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+}
+
+.primaryBtn {
+  background-color: var(--manifest-navy);
+  color: #ffffff;
+  border: 1px solid var(--manifest-navy);
+  box-shadow: 0 1px 2px rgba(11, 37, 64, 0.15);
+}
+
+.primaryBtn:hover {
+  background-color: var(--manifest-navy-soft);
+  border-color: var(--manifest-navy-soft);
+}
+
+.secondaryBtn {
+  background-color: #ffffff;
+  color: var(--manifest-navy);
+  border: 1px solid var(--manifest-line);
+}
+
+.secondaryBtn:hover {
+  background-color: var(--manifest-amber-soft);
+  border-color: #f2ddc4;
+  color: var(--manifest-navy);
+}
+
+/* Quick Metrics Cards */
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+.metricCard {
+  background-color: var(--manifest-paper);
+  padding: 1.25rem 1.25rem 1.25rem 1.375rem;
+  border-radius: 4px;
+  border: 1px solid var(--manifest-line);
+  border-left: 3px solid var(--manifest-amber);
+  box-shadow: 0 1px 3px rgba(11, 37, 64, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.metricLabel {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--manifest-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.metricValue {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--manifest-navy);
+  margin: 0.4rem 0;
+}
+
+.metricTrend {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: var(--manifest-green);
+}
+
+.metricTrendStatus,
+.metricSub {
+  font-size: 0.75rem;
+  color: var(--manifest-muted);
+}
+
+/* Table Card Container */
+.tableCard {
+  background-color: var(--manifest-paper);
+  border-radius: 4px;
+  border: 1px solid var(--manifest-line);
+  box-shadow: 0 1px 3px rgba(11, 37, 64, 0.05);
+  overflow: hidden;
+}

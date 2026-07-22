@@ -1,0 +1,468 @@
+/* ==========================================================================
+   Manifest — shared design tokens
+   One identity across the employee table and the review modal: deep
+   cargo-navy for structure, amber waybill accent for emphasis, monospace
+   for reference-style data (IDs, salaries, tags), Public Sans for prose.
+   ========================================================================== */
+
+:root {
+  --manifest-navy: #0b2540;
+  --manifest-navy-soft: #12385f;
+  --manifest-amber: #c2793d;
+  --manifest-amber-soft: #fdf1e6;
+  --manifest-ink: #1f2937;
+  --manifest-muted: #64748b;
+  --manifest-line: #e2e8f0;
+  --manifest-paper: #fefdfb;
+  --manifest-green: #0f7a5c;
+  --manifest-green-soft: #e9f7f1;
+  --font-display: 'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif;
+  --font-body: 'Public Sans', 'Inter', -apple-system, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'SFMono-Regular', ui-monospace, monospace;
+}
+
+/* ==========================================================================
+   Employee Table
+   ========================================================================== */
+
+.tableWrapper {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 4px;
+  background-color: var(--manifest-paper);
+  border: 1px solid var(--manifest-line);
+}
+
+.employeeTable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+}
+
+/* Table Header — navy rail, echoes the modal header */
+.employeeTable thead tr {
+  background-color: var(--manifest-navy);
+  border-bottom: 2px solid var(--manifest-amber);
+}
+
+.employeeTable th {
+  padding: 0.875rem 1.25rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+/* Table Body */
+.employeeTable tbody tr {
+  border-bottom: 1px solid var(--manifest-line);
+  transition: background-color 0.15s ease-in-out;
+}
+
+.employeeTable tbody tr:hover {
+  background-color: var(--manifest-amber-soft);
+}
+
+.employeeTable td {
+  padding: 1rem 1.25rem;
+  vertical-align: middle;
+  color: var(--manifest-ink);
+}
+
+/* Typography Hierarchy */
+.primaryText {
+  font-weight: 600;
+  color: var(--manifest-navy);
+  line-height: 1.25rem;
+}
+
+.subText {
+  font-size: 0.75rem;
+  color: var(--manifest-muted);
+  line-height: 1rem;
+  font-family: var(--font-mono);
+}
+
+.salaryText {
+  font-weight: 600;
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  color: var(--manifest-navy);
+}
+
+/* Status Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.25rem 0.625rem;
+  border-radius: 3px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.badgeActive {
+  background-color: var(--manifest-green-soft);
+  color: var(--manifest-green);
+}
+
+.badgeActive .dot {
+  background-color: var(--manifest-green);
+}
+
+.badgeInactive {
+  background-color: #f3f4f6;
+  color: var(--manifest-muted);
+}
+
+.badgeInactive .dot {
+  background-color: #9ca3af;
+}
+
+/* Tag Container for Skills */
+.tagContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  flex-wrap: wrap;
+}
+
+.tag {
+  background-color: var(--manifest-amber-soft);
+  color: #9a5a26;
+  font-size: 0.6875rem;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  padding: 0.125rem 0.5rem;
+  border-radius: 3px;
+  border: 1px solid #f2ddc4;
+}
+
+.moreTag {
+  font-size: 0.6875rem;
+  font-family: var(--font-mono);
+  color: var(--manifest-muted);
+  background-color: #f3f4f6;
+  padding: 0.125rem 0.375rem;
+  border-radius: 3px;
+}
+
+/* Action Area & Buttons */
+.actionCell {
+  position: relative;
+  white-space: nowrap;
+}
+
+.actionGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.viewBtn,
+.editBtn {
+  background: none;
+  border: 1px solid var(--manifest-line);
+  color: var(--manifest-navy);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.375rem 0.625rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.viewBtn:hover,
+.editBtn:hover {
+  background-color: var(--manifest-navy);
+  border-color: var(--manifest-navy);
+  color: #ffffff;
+}
+
+.moreBtn {
+  background: none;
+  border: none;
+  color: var(--manifest-muted);
+  font-size: 1rem;
+  padding: 0.375rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.moreBtn:hover {
+  background-color: #f3f4f6;
+  color: var(--manifest-navy);
+}
+
+/* Dropdown Menu for Overflow Actions */
+.dropdownWrapper {
+  position: relative;
+}
+
+.dropdownMenu {
+  position: absolute;
+  right: 0;
+  top: 100%;
+  margin-top: 0.25rem;
+  width: 140px;
+  background-color: #ffffff;
+  border: 1px solid var(--manifest-line);
+  border-top: 2px solid var(--manifest-amber);
+  border-radius: 4px;
+  box-shadow: 0 10px 15px -3px rgba(11, 37, 64, 0.15);
+  z-index: 50;
+  padding: 0.25rem 0;
+}
+
+.menuItem {
+  width: 100%;
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.75rem;
+  font-family: var(--font-body);
+  background: none;
+  border: none;
+  color: var(--manifest-ink);
+  cursor: pointer;
+  display: block;
+}
+
+.menuItem:hover {
+  background-color: var(--manifest-amber-soft);
+}
+
+.menuDivider {
+  height: 1px;
+  background-color: var(--manifest-line);
+  margin: 0.25rem 0;
+}
+
+.dangerText {
+  color: #b91c1c;
+}
+
+.dangerText:hover {
+  background-color: #fef2f2;
+}
+
+/* ==========================================================================
+   Modal — "Manifest" style
+   Deep cargo-navy header rail, amber waybill accent, monospace for
+   reference data, dotted tear-stub divider between header and body.
+   ========================================================================== */
+
+/* Modal Overlay Backdrop */
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(11, 37, 64, 0.55);
+  backdrop-filter: blur(3px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.modalCard {
+  background-color: var(--manifest-paper);
+  border-radius: 4px;
+  width: 100%;
+  max-width: 540px;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 50px -12px rgba(11, 37, 64, 0.35);
+  border: 1px solid var(--manifest-line);
+  font-family: var(--font-body);
+  position: relative;
+}
+
+/* Cargo-rail accent along the top edge, like a manifest stub */
+.modalCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--manifest-amber) 0px,
+    var(--manifest-amber) 14px,
+    var(--manifest-navy) 14px,
+    var(--manifest-navy) 28px
+  );
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 1.5rem 1.25rem;
+  background-color: var(--manifest-navy);
+  color: #fff;
+}
+
+.modalHeader h2 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #ffffff;
+  margin: 0;
+}
+
+.modalHeader h2::before {
+  content: 'MANIFEST · ';
+  color: var(--manifest-amber);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  vertical-align: middle;
+  margin-right: 0.15rem;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  line-height: 1;
+  transition: color 0.15s ease, background-color 0.15s ease;
+}
+.closeBtn:hover {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.modalBody {
+  padding: 1.5rem;
+  position: relative;
+}
+
+/* Dotted "tear line" separating the header rail from the body,
+   evoking a perforated manifest stub */
+.modalBody::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 1.5rem;
+  right: 1.5rem;
+  border-top: 1.5px dashed var(--manifest-line);
+}
+
+/* Detail View Layout */
+.detailGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  color: var(--manifest-ink);
+  font-size: 0.875rem;
+  padding-top: 0.5rem;
+}
+
+.reviewItem {
+  background-color: var(--manifest-amber-soft);
+  padding: 0.75rem 0.875rem;
+  border-radius: 4px;
+  border: 1px solid #f2ddc4;
+  border-left: 3px solid var(--manifest-amber);
+  margin-top: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  color: var(--manifest-navy);
+}
+
+/* Edit Form Layout */
+.editForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 0.5rem;
+}
+
+.editForm label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--manifest-muted);
+}
+
+.inputField {
+  padding: 0.55rem 0.75rem;
+  border-radius: 4px;
+  border: 1px solid var(--manifest-line);
+  font-size: 0.875rem;
+  font-family: var(--font-mono);
+  color: var(--manifest-ink);
+  background-color: #ffffff;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+.inputField:focus {
+  border-color: var(--manifest-navy);
+  box-shadow: 0 0 0 3px rgba(11, 37, 64, 0.12);
+}
+
+.modalFooter {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--manifest-line);
+}
+
+/* Suggested button treatment — apply if your footer buttons don't
+   already have their own module classes */
+.modalFooter button {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.1s ease;
+}
+.modalFooter button:active {
+  transform: translateY(1px);
+}
+.modalFooter button:first-child {
+  background: #ffffff;
+  border: 1px solid var(--manifest-line);
+  color: var(--manifest-muted);
+}
+.modalFooter button:first-child:hover {
+  background: #f8fafc;
+}
+.modalFooter button:last-child {
+  background: var(--manifest-navy);
+  border: 1px solid var(--manifest-navy);
+  color: #ffffff;
+}
+.modalFooter button:last-child:hover {
+  background: var(--manifest-navy-soft);
+}

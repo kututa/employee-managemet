@@ -1,0 +1,148 @@
+/* ==========================================================================
+   Manifest — shared design tokens
+   (Same tokens as the rest of the system.)
+   ========================================================================== */
+
+:root {
+  --manifest-navy: #0b2540;
+  --manifest-navy-soft: #12385f;
+  --manifest-amber: #c2793d;
+  --manifest-amber-soft: #fdf1e6;
+  --manifest-ink: #1f2937;
+  --manifest-muted: #64748b;
+  --manifest-line: #e2e8f0;
+  --manifest-paper: #fefdfb;
+  --manifest-green: #0f7a5c;
+  --font-display: 'IBM Plex Sans Condensed', 'Arial Narrow', sans-serif;
+  --font-body: 'Public Sans', 'Inter', -apple-system, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'SFMono-Regular', ui-monospace, monospace;
+}
+
+/* Footer — bookends the navbar in navy, closing the page frame */
+.footer {
+  background-color: var(--manifest-navy);
+  border-top: 2px solid var(--manifest-amber);
+  font-family: var(--font-body);
+  padding: 2.5rem 2rem 2rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Top Section: Brand & Quick Links */
+.topSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.brandInfo {
+  max-width: 380px;
+}
+
+.brandName {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.brandName::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: var(--manifest-amber);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+.brandDesc {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.5;
+  margin: 0.625rem 0 0;
+}
+
+.linkGroup {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.link {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.65);
+  text-decoration: none;
+  transition: color 0.15s ease-in-out;
+}
+
+.link:hover {
+  color: var(--manifest-amber);
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--manifest-amber);
+  outline-offset: 3px;
+}
+
+/* Divider — dashed, echoing the manifest tear-stub motif used
+   in the modal */
+.divider {
+  border-top: 1.5px dashed rgba(255, 255, 255, 0.15);
+}
+
+/* Bottom Section: Copyright & System Status */
+.bottomSection {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.copyright {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0;
+}
+
+.statusIndicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.statusDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--manifest-green);
+  box-shadow: 0 0 0 3px rgba(15, 122, 92, 0.25);
+}
+
+.statusText {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.65);
+}
